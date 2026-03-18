@@ -16,26 +16,16 @@ Use your knowledge of object-oriented programming, ArrayLists, the String class,
 
 ## UML Diagram
 
-Put an image of your UML Diagram here. Upload the image of your UML Diagram to your repository, then use the Markdown syntax to insert your image here. Make sure your image file name is one word, otherwise it might not properly get displayed on this README.
-
-![UML Diagram for my project](nameOfImageFileHere.png)
+![UML Diagram for my project](UML.png)
 
 ## Video
 
-Record a short video of your project to display here on your README. You can do this by:
-
-- Screen record your project running on Code.org.
-- Upload that recording to YouTube.
-- Take a thumbnail for your image.
-- Upload the thumbnail image to your repo.
-- Use the following markdown code:
-
-[![Thumbnail for my projet](nameOfThumbnail.png)](youtube-URL-here)
+[![Thumbnail for my projet](thumbNail.png)](https://youtube.com/shorts/mIWNGLnnDo4?feature=share)
 
 ## Project Description
 
-Write a description of the goal and/or problem that your application. Include descriptions of what text is being analyzed, either if its text files you are using to interpret text and how the user interacts with your project.
+The goal of our application was to showcase how computers can use natural language processing. We had ai generate an essay or our choosing, and with user input; determine how many times their chosen word/phrase/letter shows up in the essay. The textfile is being read through and if there is a match, then we add one to a count.
 
 ## NLP Techniques
 
-Write a description of what natural language technique (NLP) you implemented in your project. State which methods in your project are associated with this, and a brief explanation of how those methods work and how they are necessary in the NLP technique.
+We created a simple method using text preprocessing. This preprocessing is an important early step in natural language processing. When we preprocess words or phrases from a file, we take the unstructured the data we get from it, layout that data in a (somewhat) structured manner to allow for subsequent analysis to be completed on it. In our case, we built a TextProcessor class, where the constructor reads from a text file, and places each line into an ArrayList so that we can easily retrieve, update and manipulate those characters. By using the combination of getFullText and getTextList (that provides all text for each line), we can accomplish both combining and manipulating (providing all lines in the same upper/lower case) raw text into a usable format.

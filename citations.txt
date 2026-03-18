@@ -1,0 +1,104 @@
+What I Prompted:
+
+My idea is to make a scanner where you generate an random essay topic of your choosing (put in a txt file) and we get human input to put a letter/phrase/word
+Make a method that gets specific string from whatever the person input and compares it to how many times that exact thing shows up in the essay. For example "of" and it scans
+the whole essay, and tells "of" showed up _____ this many times. Something like that.
+
+Keep in mind:
+Word frequency counter
+Have ai generate an essay and we go through it
+Users input a word they want to see how many times its repeated.
+Any computer program that analyzes/interprets text to determine some human language output
+Uses 2 ArrayLists to store data extracted/calculated from the text file
+Use meaningful methods from the String class to address the NLP goal
+Collect user inut and or print a summary to the console
+Use Parse      
+Use JavaDoc
+Basically:
+If “” = “”
+Count ++
+Whatever word the person input in the scanner, if there is a same word in the essay, then add 1 to a counter.
+
+Description: User types a sentence or paragraph and the program counts how many times each word appears. Text File: words-1000.txt (optional filter for common/stop words) ArrayLists: ArrayList<String> foundWords, ArrayList<Integer> counts Key Methods:
+countWords(String input)  →  tokenizes input, tracks frequency using parallel lists
+sortByFrequency()  →  sorts both lists together by count (descending)
+prompt()  →  collects the text to analyze
+printSummary()  →  prints each unique word and its count
+
+--------------------------------------------------------|
+What I recieved:
+
+*essay in essay.txt* its too long to put here.
+
+import java.util.ArrayList;
+
+/**
+ * Analyzes and processes text from a file
+ */
+public class TextProcessor {
+    private String filename;
+    private ArrayList<String> textList;
+
+    public TextProcessor(String filename) {
+        this.filename = filename;
+        // Using the provided FileReader utility
+        this.textList = FileReader.toStringList(filename);
+    }
+
+    /**
+     * Concatenates all lines into one large string for phrase searching
+     * @return The entire essay as one String
+     */
+    public String getFullText() {
+        String fullText = "";
+        for (String line : textList) {
+            fullText += line + " ";
+        }
+        return fullText.toLowerCase();
+    }
+
+    public ArrayList<String> getTextList() {
+        return textList;
+    }
+}
+
+----------------------------------------------------------------------|
+What I prompted:
+
+Help me make the introduction and the summary for the scanner. Its alot of syntax and could use some help.
+
+----------------------------------------------------------------------|
+What I recieved:
+
+    public void prompt() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("|--- Welcome to the Essay Analyzer ---|");
+        System.out.println("Enter a word or phrase to count (or type 'quit' to stop the program):");
+       
+        while (true) {
+            System.out.print("\nSearch for: ");
+            String userInput = input.nextLine();
+
+            if (userInput.equalsIgnoreCase("quit")) {
+                break;
+            }
+
+            int found = countOccurrences(userInput);
+            System.out.println("The phrase '" + userInput + "' appeared " + found + " times.");
+        }
+
+        printSummary();
+        input.close();
+    }
+
+    /**
+     * Prints a summary of all searches performed in this session
+     */
+    public void printSummary() {
+        System.out.println("\n--- Session Summary ---");
+        for (int i = 0; i < searchHistory.size(); i++) {
+            System.out.println("Keyword: [" + searchHistory.get(i) + "] | Count: " + countHistory.get(i));
+        }
+        System.out.println("Goodbye!");
+    }
